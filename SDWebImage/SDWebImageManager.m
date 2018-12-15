@@ -190,10 +190,8 @@
             if (cachedImage && options & SDWebImageRefreshCached) {
                 // force progressive off if image already cached but forced refreshing
                 downloaderOptions &= ~SDWebImageDownloaderProgressiveDownload;
-                // remove SDWebImageDownloaderUseNSURLCache flag
-                downloaderOptions &= ~SDWebImageDownloaderUseNSURLCache;
-                //ignore image read from NSURLCache if image is cached but force refreshing
-                downloaderOptions |= SDWebImageDownloaderIgnoreCachedResponse;
+                // ignore image read from NSURLCache if image if cached but force refreshing
+                // downloaderOptions |= SDWebImageDownloaderIgnoreCachedResponse;
             }
             
             // `SDWebImageCombinedOperation` -> `SDWebImageDownloadToken` -> `downloadOperationCancelToken`, which is a `SDCallbacksDictionary` and retain the completed block below, so we need weak-strong again to avoid retain cycle
